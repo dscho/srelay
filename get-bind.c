@@ -308,7 +308,7 @@ int get_bind_addr(bin_addr *dest, struct addrinfo *ba)
 
 #endif /* defined(FREEBSD) || defined(SOLARIS) || defined(MACOSX) */
 
-#if defined(LINUX)
+#if defined(LINUX) || defined(ANDROID)
 
 int get_bind_addr(bin_addr *dest, struct addrinfo *ba)
 {

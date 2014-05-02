@@ -53,7 +53,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #if defined(FREEBSD) || defined(SOLARIS) || defined(MACOSX)
 #include <sys/filio.h>
 #endif
-#if defined(LINUX) || defined(MACOSX)
+#if defined(LINUX) || defined(MACOSX) || defined(HAVE_IOCTL_H)
 #include <sys/ioctl.h>
 #endif
 

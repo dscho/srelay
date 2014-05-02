@@ -212,7 +212,8 @@ int checkpasswd(char *user, char *pass)
     return(-1);
   }
 
-#if defined(FREEBSD) || defined(LINUX) || defined(MACOSX)
+#if defined(ANDROID)
+#elif defined(FREEBSD) || defined(LINUX) || defined(MACOSX)
   setreuid(PROCUID, 0);
   pwd = getpwnam(user);
   setreuid(0, PROCUID);
