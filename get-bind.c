@@ -309,6 +309,8 @@ int get_bind_addr(bin_addr *dest, struct addrinfo *ba)
 #endif /* defined(FREEBSD) || defined(SOLARIS) || defined(MACOSX) */
 
 #if defined(LINUX) || defined(ANDROID)
+#include <linux/netlink.h>
+#include <linux/rtnetlink.h>
 
 int get_bind_addr(bin_addr *dest, struct addrinfo *ba)
 {

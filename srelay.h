@@ -50,6 +50,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <config.h>
 #endif
 
+#undef MACOSX
+#define ANDROID
 #if defined(FREEBSD) || defined(SOLARIS) || defined(MACOSX)
 #include <sys/filio.h>
 #endif

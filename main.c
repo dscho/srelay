@@ -193,13 +193,11 @@ int serv_loop()
 #endif
       /* handle any queued signal flags */
       if (FD_ISSET(sig_queue[0], &readable)) {
-        if (ioctl(sig_queue[0], FIONREAD, &i) != 0) {
-          msg_out(crit, "ioctl: %m");
-          exit(-1);
-        }
-        while (--i >= 0) {
+        for (;;) {
           char c;
-          if (read(sig_queue[0], &c, 1) != 1) {
+          int n = read(sig_queue[0], &c, 1);
+          if (n == 0) break;
+          if (n < 0) {
             msg_out(crit, "read: %m");
             exit(-1);
           }
